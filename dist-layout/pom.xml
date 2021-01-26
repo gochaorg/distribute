@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>distribute</artifactId>
+        <groupId>xyz.cofe</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dist-layout</artifactId>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <groovy.version>3.0.7</groovy.version>
+        <gmaven-plus.version>1.12.1</gmaven-plus.version>
+        <junit.version>5.4.0</junit.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>xyz.cofe</groupId>
+            <artifactId>fs</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>xyz.cofe</groupId>
+            <artifactId>ecolls</artifactId>
+            <version>1.8</version>
+        </dependency>
+        <dependency>
+            <groupId>xyz.cofe</groupId>
+            <artifactId>text</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>/src/test/resources</directory>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>${gmaven-plus.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>addSources</goal>
+                            <goal>addTestSources</goal>
+<!--                            <goal>generateStubs</goal>-->
+                            <goal>compile</goal>
+<!--                            <goal>generateTestStubs</goal>-->
+                            <goal>compileTests</goal>
+<!--                            <goal>removeStubs</goal>-->
+<!--                            <goal>removeTestStubs</goal>-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

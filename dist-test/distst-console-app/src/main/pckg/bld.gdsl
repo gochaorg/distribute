@@ -1,0 +1,22 @@
+// Официальная документация
+// https://confluence.jetbrains.com/display/GRVY/Scripting+IDE+for+DSL+awareness
+//
+// https://www.tothenew.com/blog/gdsl-awesomeness-introduction-to-gdsl-in-intellij-idea/
+//
+// https://blog.mrhaki.com/2009/10/use-groovydsl-in-intellij-idea.html
+//
+// Примеры
+// def ctx = context(ctype: "java.lang.Integer",
+//    scope: scriptScope(name: "build.groovy"))
+
+def ctx = context( scope: scriptScope(name: "build.groovy") )
+
+contributor(ctx) {
+//    method  name: 'assembly',
+//            params: [
+//                "build" : {}
+//            ]
+
+    property name: 'project', type: 'org.apache.maven.project.MavenProject'
+    delegatesTo(findClass('xyz.cofe.dist.mvn.LayoutBaseScript'))
+}
